@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Shop</title>
+</head>
+<body>
+    <h1>Event Search</h1>
+    <form method="post">
+        <input type="text" name="category" placeholder="Category"><br>
+        <input type="text" name="date" placeholder="Date (YYYY-MM-DDTHH:MM:SSZ)"><br>
+        <input type="text" name="address" placeholder="Address"><br>
+        <input type="text" name="keyword" placeholder="Keyword"><br>
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Events</h2>
+<ul>
+  {% for event in events %}
+    <li>
+      <strong>{{ event.description }}</strong><br>
+      Address: {{ event.address }}<br>
+      Price: {{ event.price }}<br>
+      <a href="{{ event.url }}" target="_blank">View Event</a>
+    </li>
+    <hr>
+  {% endfor %}
+</ul>
+    <p>Total cart value: ${{ cart_total }}</p>
+</body>
+</html>
